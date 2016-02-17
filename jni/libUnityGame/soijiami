@@ -1,0 +1,21 @@
+#!/bin/sh
+
+
+
+./so_jiami/strip/arm/strip ./libs/armeabi/libexecdll.so
+./so_jiami/elffix -k f7cea42f3c254716c8ab88cb558560a6 -f ./libs/armeabi/libexecdll.so
+./so_jiami/ijiami.elf -k f7cea42f3c254716c8ab88cb558560a6 -f ./libs/armeabi/libexecdll.so
+
+./so_jiami/strip/arm/strip ./libs/armeabi-v7a/libexecdll.so
+./so_jiami/elffix -k f7cea42f3c254716c8ab88cb558560a6 -f ./libs/armeabi-v7a/libexecdll.so
+./so_jiami/ijiami.elf -k f7cea42f3c254716c8ab88cb558560a6 -f ./libs/armeabi-v7a/libexecdll.so
+
+./so_jiami/strip/x86/strip ./libs/x86/libexecdll.so
+./so_jiami/elffix -k f7cea42f3c254716c8ab88cb558560a6 -f ./libs/x86/libexecdll.so
+./so_jiami/ijiami.elf -k f7cea42f3c254716c8ab88cb558560a6 -f ./libs/x86/libexecdll.so
+
+#ijiami /home/lee/workspace/androidShell_v5/libs/armeabi/libexec.so
+#ijiami /home/lee/workspace/androidShell_v5/libs/armeabi-v7a/libexec.so
+#ijiami /home/lee/workspace/androidShell_v5/libs/x86/libexec.so
+
+sleep 10

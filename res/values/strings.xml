@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="app_name">Library Security diagnostic</string>
+
+    <array name="MenuItemArray">
+        <item>A.检查签名</item>
+        <item>B.检查代码签名</item>
+        <item>C.内存搜索</item>  <!-- 该顺序不能改了 -->
+        <item>D.检查JDWP连接并阻止</item>
+        <item>E.堆栈ROP测试</item>
+        <item>F.以Debug模式启动</item>
+        <item>G.漏洞检测</item>
+    </array>
+
+</resources>
