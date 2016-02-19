@@ -5,7 +5,6 @@
  *      Author: peng
  */
 
-#include <sys/_system_properties.h>
 #ifndef LIBCMPT_CMPT_H_
 #define LIBCMPT_CMPT_H_
 

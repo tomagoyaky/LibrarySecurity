@@ -5,7 +5,7 @@
  *      Author: peng
  */
 #include "CMPT.h"
-
+#include <sys/system_properties.h>
 int CMPT::check_miui_version(void) {
 
 	char propValue[92] = { 0 };

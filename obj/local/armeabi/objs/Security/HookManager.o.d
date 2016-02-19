@@ -90,7 +90,7 @@ obj/local/armeabi/objs/Security/HookManager.o: \
  E:/Android/android-ndk-r10/sources/cxx-stl/stlport/stlport/time.h \
  E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/../include/time.h \
  E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/sched.h \
- jni/libSecurity/../inc/hook.h jni/libSecurity/../inc/log.h \
+ jni/libSecurity/../libshook/hook.h jni/libSecurity/../inc/log.h \
  E:/Android/android-ndk-r10/sources/cxx-stl/stlport/stlport/stdio.h \
  E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/../include/stdio.h \
  E:/Android/android-ndk-r10/sources/cxx-stl/stlport/stlport/errno.h \
@@ -281,7 +281,7 @@ E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/../include/
 
 E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/sched.h:
 
-jni/libSecurity/../inc/hook.h:
+jni/libSecurity/../libshook/hook.h:
 
 jni/libSecurity/../inc/log.h:
 

@@ -33,6 +33,7 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) {
 	if((result = ANTI::start(getpid())) != 0){
 		LOGE("ERROR: anti is failure, ERRORNUM=%d", result);
 	}
+
 	return JNI_VERSION_1_4;
 }
 

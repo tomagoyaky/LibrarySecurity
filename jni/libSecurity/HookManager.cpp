@@ -17,8 +17,8 @@
 
 //#include "libdex/DexFile.h"
 //#include "vm/DvmDex.h"
-#include "../inc/hook.h"
-#include "../inc/log.h"
+#include "hook.h"
+#include "log.h"
 //
 //int (*org_socket)(int domain, int socket_type, int protocol);
 //int (*org_connect)(int sockfd, const struct sockaddr *addr, socklen_t addrlen);

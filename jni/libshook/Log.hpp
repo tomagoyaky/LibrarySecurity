@@ -48,9 +48,7 @@
 } while (false)
 
 #elif ANDROID
-#include <port/android.h>
-//#include <android/log.h>
-//#define LOGW(...) __android_log_print(ANDROID_LOG_WARN,"ajm-hook" ,__VA_ARGS__)
+#include "log.h"
 #define MSLog(level, format, ...) do { \
     LOGW(format, ## __VA_ARGS__); \
 } while (false)

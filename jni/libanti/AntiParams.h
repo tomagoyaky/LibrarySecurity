@@ -10,6 +10,9 @@
 
 #include <limits.h>
 
+#define NoSleep 1001
+#define NoSleep_Break 1001
+
 namespace ANTIPARAMS{
 	enum Tactics { Flag_Exit, Flag_ConsolePrint, Flag_FileLog};
 	typedef struct AntiParams{

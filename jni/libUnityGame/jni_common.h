@@ -3,7 +3,7 @@
 
 #include <android/log.h>
 
-#define DEBUG 0
+#define DEBUG 1
 
 #ifndef LOG_TAG
 #define LOG_TAG "ajm_Hello"

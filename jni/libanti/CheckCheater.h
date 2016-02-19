@@ -21,9 +21,16 @@ using namespace std;
 
 namespace CHEAT{
 
-	enum TacticsType {TypeLocalVarBuff, TypeLocalFile, TypeLocalNetWork};
+	enum TacticsType {
+		TypeLocalVarBuff,
+		TypeLocalFile,
+		TypeLocalNetWork
+	};
+
+	int MonitorHook();
 	int MonitorCheater(ANTIPARAMS::PointAntiParams antiParams);
 	void *start(void* _antiParams);
+	int monitor_access(const char *pathname, int mode);
 }
 
 #endif /* CHECKCHEATER_H_ */

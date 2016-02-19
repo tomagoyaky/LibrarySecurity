@@ -28,7 +28,7 @@ int ANTI::start(int pid){
 			retval = -2;
 			break;
 		}
-		LOGI(">>> %s. ", antiParams->name);
+		LOGD(">>> %s. ", antiParams->name);
 
 		// 反内存修改
 		memset(antiParams, 0, sizeof(struct AntiParams));
@@ -40,19 +40,19 @@ int ANTI::start(int pid){
 			retval = -3;
 			break;
 		}
-		LOGI(">>> %s. ", antiParams->name);
+		LOGD(">>> %s. ", antiParams->name);
 
 		// 反作弊器
 		memset(antiParams, 0, sizeof(struct AntiParams));
 		antiParams->name = "ANTI-CHEAT-TOOL";
 		antiParams->pid = pid;
-		antiParams->sleepTime = 30;
+		antiParams->sleepTime = NoSleep_Break;
 		antiParams->tactics = Flag_Exit;
 		if((ThreadUtil::makethread(&CHEAT::start, antiParams) != 0)){
 			retval = -4;
 			break;
 		}
-		LOGI(">>> %s. ", antiParams->name);
+		LOGD(">>> %s. ", antiParams->name);
 
 	}while(0);
 	if(antiParams){

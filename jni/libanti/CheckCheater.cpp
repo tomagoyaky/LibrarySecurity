@@ -8,14 +8,20 @@
 #include "CheckCheater.h"
 #include "ANTIPARAMS.h"
 #include "processinfo.h"
+#include "hook.h"
 
 using namespace PS;
 
 void *CHEAT::start(void* _antiParams){
-	ANTIPARAMS::PointAntiParams antiParams = (ANTIPARAMS::PointAntiParams)_antiParams;
+	int ret = 0;
+	ANTIPARAMS::PointAntiParams antiParams;
 	do{
+		antiParams = (ANTIPARAMS::PointAntiParams)_antiParams;
 		while(true){
-
+			if((ret = MonitorHook()) < 0){
+				LOGE("set hook point fail, error:%d", ret);
+				break;
+			}
 			if(MonitorCheater(antiParams) < 0){
 				break;
 			}
@@ -23,10 +29,33 @@ void *CHEAT::start(void* _antiParams){
 				break;
 			}
 
-			sleep(antiParams->sleepTime);
+			if(antiParams->sleepTime == NoSleep_Break){
+				break;
+			}else{
+				sleep(antiParams->sleepTime);
+			}
 		}
 	}while(0);
 	return NULL;
+}
+
+int (*org_access)(const char *pathname, int mode);
+int CHEAT::monitor_access(const char *pathname, int mode){
+
+	LOGI(":::: pathname='%s', mode=%d", pathname, mode);
+	return org_access(pathname, mode);
+}
+static int error_num = 0;
+int CHEAT::MonitorHook(){
+
+	int ret = 0;
+	do {
+		if((ret = elfHook("libc.so", "access", (void *) monitor_access, (void**) &org_access)) != 0){
+			ret = -1 * (error_num++);
+			break;
+		}
+	} while (0);
+	return ret;
 }
 
 int CHEAT::MonitorCheater(ANTIPARAMS::PointAntiParams antiParams){
@@ -46,15 +75,15 @@ int CHEAT::MonitorCheater(ANTIPARAMS::PointAntiParams antiParams){
 		switch(Tactics){
 			case TypeLocalVarBuff:
 				do {
-					char *_blacklist[] = {
+					const char *_blacklist[] = {
 						"/data/data/com.touch18.tools/files/memcheck",
 						"com.touch18.tools",
 						"com.touch18.tools:systemservice",
 						"/data/data/cn.mm.gk/files/isq",
 						"cn.mm.gk"
 					};
-					blacklist = _blacklist;
-					blacklistnum = sizeof(_blacklist);
+					blacklist = (char**)_blacklist;
+					blacklistnum = sizeof(_blacklist) / sizeof(char*);
 				} while (0);
 				break;
 			case TypeLocalFile:
@@ -79,9 +108,9 @@ int CHEAT::MonitorCheater(ANTIPARAMS::PointAntiParams antiParams){
 			}
 		}
 		if(flag_found == 0){
-			LOGI(">>> OK, not found cheater");
+			LOGD(">>> OK, not found cheater");
 		}else{
-			LOGI("Warnning!!! found cheater number of '%d'", flag_found);
+			LOGD("Warnning!!! found cheater number of '%d'", flag_found);
 		}
 	
 		time_t t = time(0);

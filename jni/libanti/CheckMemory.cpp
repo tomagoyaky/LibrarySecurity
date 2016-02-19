@@ -21,7 +21,11 @@ void *MEMORY::start(void* _antiParams){
 			if(ANTIPARAMS::ResultProcess(antiParams) < 0){
 				break;
 			}
-			sleep(antiParams->sleepTime);
+			if(antiParams->sleepTime == NoSleep_Break){
+				break;
+			}else{
+				sleep(antiParams->sleepTime);
+			}
 		}
 	}while(0);
 	return NULL;

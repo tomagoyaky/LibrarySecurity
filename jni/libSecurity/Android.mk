@@ -6,9 +6,14 @@ LOCAL_LDLIBS 	:= -llog -fPIC
 LOCAL_C_INCLUDES :=  $(LOCAL_PATH)/../inc \
 	$(LOCAL_PATH)/../libanti \
 	$(LOCAL_PATH)/../libshook \
-	$(LOCAL_PATH)/../libCommonUtils
+	$(LOCAL_PATH)/../libCommonUtils \
+	$(LOCAL_PATH)/../libCMPT
 	
-LOCAL_STATIC_LIBRARIES := libanti
+LOCAL_STATIC_LIBRARIES := libanti \
+	libshook \
+	libCommonUtils \
+	libCMPT
+	
 LOCAL_MODULE    := Security
 LOCAL_SRC_FILES := Security.cpp \
 	NativeBridge.cpp \
