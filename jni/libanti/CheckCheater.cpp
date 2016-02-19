@@ -50,10 +50,10 @@ int CHEAT::MonitorHook(){
 
 	int ret = 0;
 	do {
-		if((ret = elfHook("libc.so", "access", (void *) monitor_access, (void**) &org_access)) != 0){
-			ret = -1 * (error_num++);
-			break;
-		}
+//		if((ret = elfHook("libc.so", "access", (void *) monitor_access, (void**) &org_access)) != 0){
+//			ret = -1 * (error_num++);
+//			break;
+//		}
 	} while (0);
 	return ret;
 }
@@ -76,11 +76,9 @@ int CHEAT::MonitorCheater(ANTIPARAMS::PointAntiParams antiParams){
 			case TypeLocalVarBuff:
 				do {
 					const char *_blacklist[] = {
-						"/data/data/com.touch18.tools/files/memcheck",
-						"com.touch18.tools",
-						"com.touch18.tools:systemservice",
-						"/data/data/cn.mm.gk/files/isq",
-						"cn.mm.gk"
+						"/data/data/com.touch18.tools/files/memcheck", 		// 超好玩修改器
+						"/data/data/com.huluxia.gametools/files/binarm", 	// 葫芦侠修改器
+						"/data/data/cn.mm.gk/files/isq"						// 八门神器
 					};
 					blacklist = (char**)_blacklist;
 					blacklistnum = sizeof(_blacklist) / sizeof(char*);

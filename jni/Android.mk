@@ -11,11 +11,13 @@ include $(CLEAR_VARS)
 #	
 
 JNI_PATH := $(LOCAL_PATH)
-include $(JNI_PATH)/libDialog/Android.mk
+include $(JNI_PATH)/libTomagoyakyService/Android.mk
 include $(JNI_PATH)/libCMPT/Android.mk
 include $(JNI_PATH)/libCommonUtils/Android.mk
-include $(JNI_PATH)/libshook/Android.mk
+#include $(JNI_PATH)/libshook/Android.mk
+include $(JNI_PATH)/libhook/Android.mk
 
+include $(JNI_PATH)/libSandBox/Android.mk
 include $(JNI_PATH)/libanti/Android.mk
 include $(JNI_PATH)/libSecurity/Android.mk
 include $(JNI_PATH)/libUnityGame/Android.mk

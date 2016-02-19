@@ -19,7 +19,7 @@ LOCAL_EXPORT_C_INCLUDES := hook.h
 LOCAL_MODULE := shook
 LOCAL_MODULE_TAGS := optional
  
-LOCAL_LDLIBS := -llog    -fPIC  
+LOCAL_LDLIBS := -llog -fPIC  
 #include $(BUILD_STATIC_EXECUTABLE)
 #include $(BUILD_EXECUTABLE)
 include $(BUILD_STATIC_LIBRARY)

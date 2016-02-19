@@ -8,11 +8,9 @@
 #ifndef DIALOG_H_
 #define DIALOG_H_
 
+namespace Dialog{
 
-namespace DialogServer{
-
-	// 给我一个jvm我可以撬动app
-	int start(JavaVM* vm);
+	int showDialog(int style);
 }
 
-#endif /* DIALOG_H_ */
+#endif

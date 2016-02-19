@@ -14,7 +14,7 @@ LOCAL_C_INCLUDES :=  $(LOCAL_PATH)/../inc \
 
 
 LOCAL_EXPORT_C_INCLUDES := anti.h
-LOCAL_STATIC_LIBRARIES := libshook \
+LOCAL_STATIC_LIBRARIES := libhook \
 	libCommonUtils \
 	libCMPT
 	
