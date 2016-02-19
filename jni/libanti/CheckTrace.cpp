@@ -60,7 +60,3 @@ long TRACE::CheckTraceID(int pid){
 	}while(0);
 	return 0;
 }
-
-
-
-

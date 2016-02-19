@@ -8,8 +8,11 @@
 #ifndef SANDBOX_H_
 #define SANDBOX_H_
 
+#include "hook.h"
 
+namespace SandBox{
 
+}
 
 
 #endif /* SANDBOX_H_ */

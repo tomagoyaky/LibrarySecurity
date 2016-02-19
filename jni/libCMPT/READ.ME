@@ -1,0 +1,35 @@
+char sdkVersion[PROP_VALUE_MAX];
+__system_property_get("ro.build.version.sdk", sdkVersion);
+const int sdkVersionInt = atoi(sdkVersion);
+
+if (0 != *sdkVersion && sdkVersionInt < 17) {
+
+}
+
+char *path_getBuildTargetArch( const char* androidOut )
+{
+    const char* defaultArch = "arm";
+    char*       result = NULL;
+    char*       cpuAbi = _getBuildProperty(androidOut, "ro.product.cpu.abi");
+
+    if (cpuAbi == NULL) {
+        D("Coult not find CPU ABI in build properties!");
+        D("Default target architecture=%s", defaultArch);
+        result = ASTRDUP(defaultArch);
+    } else {
+        /* Translate ABI to cpu arch if necessary */
+        if (!strcmp("armeabi",cpuAbi))
+            result = "arm";
+        else if (!strcmp("armeabi-v7a", cpuAbi))
+            result = "arm";
+        else if (!strncmp("mips", cpuAbi, 4))
+            result = "mips";
+        else
+            result = cpuAbi;
+
+        D("Found target ABI=%s, architecture=%s", cpuAbi, result);
+        result = ASTRDUP(result);
+        AFREE(cpuAbi);
+    }
+    return result;
+}
