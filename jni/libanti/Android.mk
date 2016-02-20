@@ -6,12 +6,11 @@ LOCAL_LDLIBS 	:= -llog -fPIC
 LOCAL_STATIC_LIBRARIES := E:\Android\android-ndk-r10\sources\cxx-stl\stlport\libs\armeabi\libstlport_static.a
 #	/Users/admin/Documents/android-ndk-r10b/sources/cxx-stl/stlport/libs/arm64-v8a/libstlport_static.a
 LOCAL_C_INCLUDES :=  $(LOCAL_PATH)/../inc \
-	$(LOCAL_PATH)/../libshook \
+	$(LOCAL_PATH)/../libhook \
 	$(LOCAL_PATH)/../libCommonUtils \
 	$(LOCAL_PATH)/../libCMPT \
 	E:\Android\android-ndk-r10\sources\cxx-stl\stlport\stlport
 #	 /Users/admin/Documents/android-ndk-r10b/sources/cxx-stl/stlport/stlport
-
 
 LOCAL_EXPORT_C_INCLUDES := anti.h
 LOCAL_STATIC_LIBRARIES := libhook \

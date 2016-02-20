@@ -10,6 +10,7 @@
 #include <errno.h>
 #include <android/log.h>
 #define DEBUG 1
+#define EXE_PRINTF 1  //elf程序打开这个
 
 #ifndef DEBUG
 	#define DEBUG 0
@@ -20,12 +21,22 @@
 #endif
 
 #if DEBUG
-	#define LOGD(fmt,...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "[%s]" fmt, __FUNCTION__,##__VA_ARGS__)
-	#define LOGI(fmt,...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "[%s]" fmt, __FUNCTION__,##__VA_ARGS__)
-	#define LOGV(fmt,...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, "[%s]" fmt, __FUNCTION__,##__VA_ARGS__)
-	#define LOGW(fmt,...) __android_log_print(ANDROID_LOG_WARN, LOG_TAG, "[%s]" fmt, __FUNCTION__,##__VA_ARGS__)
-	#define LOGE(fmt,...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "[%s]" fmt, __FUNCTION__,##__VA_ARGS__)
-	#define LOGF(fmt,...) __android_log_print(ANDROID_LOG_FATAL, LOG_TAG, "[%s]" fmt, __FUNCTION__,##__VA_ARGS__)
+	#ifdef EXE_PRINTF
+		#define LOGD(fmt,...) printf("[%12s] " fmt "\n", __FUNCTION__,##__VA_ARGS__)
+		#define LOGI(fmt,...) printf("[%12s] " fmt "\n", __FUNCTION__,##__VA_ARGS__)
+		#define LOGV(fmt,...) printf("[%12s] " fmt "\n", __FUNCTION__,##__VA_ARGS__)
+		#define LOGW(fmt,...) printf("[%12s] " fmt "\n", __FUNCTION__,##__VA_ARGS__)
+		#define LOGE(fmt,...) printf("[%12s] " fmt "\n", __FUNCTION__,##__VA_ARGS__)
+		#define LOGF(fmt,...) printf("[%12s] " fmt "\n", __FUNCTION__,##__VA_ARGS__)
+
+	#else
+		#define LOGD(fmt,...) __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, "[%s]" fmt, __FUNCTION__,##__VA_ARGS__)
+		#define LOGI(fmt,...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "[%s]" fmt, __FUNCTION__,##__VA_ARGS__)
+		#define LOGV(fmt,...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, "[%s]" fmt, __FUNCTION__,##__VA_ARGS__)
+		#define LOGW(fmt,...) __android_log_print(ANDROID_LOG_WARN, LOG_TAG, "[%s]" fmt, __FUNCTION__,##__VA_ARGS__)
+		#define LOGE(fmt,...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, "[%s]" fmt, __FUNCTION__,##__VA_ARGS__)
+		#define LOGF(fmt,...) __android_log_print(ANDROID_LOG_FATAL, LOG_TAG, "[%s]" fmt, __FUNCTION__,##__VA_ARGS__)
+	#endif
 #else
 	#define LOGD(...) while(0){}
 	#define LOGI(...) while(0){}

@@ -1,12 +1,14 @@
 #include <jni.h>
-
+#include <stdlib.h>
+#include <string.h>
 #include "art_object_4_4.h"
 #include "art_func_4_4.h"
-#include "common.h"
 #include "JavaMethodHook.h"
+#include "log.h"
 
 using namespace art::mirror;
 using namespace art;
+using namespace JavaHook;
 
 static char* get_chars_from_utf16(const String *src) {
 	size_t byte_count = src->GetUtfLength();
@@ -72,7 +74,7 @@ extern "C" uint64_t artQuickToDispatcher(ArtMethod* method, Thread *self, u4 **a
 	return res;
 }
 
-extern int __attribute__ ((visibility ("hidden"))) art_java_method_hook(JNIEnv* env, HookInfo *info) {
+extern int __attribute__ ((visibility ("hidden"))) artHook(JNIEnv* env, HookInfo *info) {
 	const char* classDesc = info->classDesc;
 	const char* methodName = info->methodName;
 	const char* methodSig = info->methodSig;

@@ -13,9 +13,9 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-#include "common.h"
 #include "elfio.h"
-
+#include "log.h"
+using namespace ElfHook;
 ElfHandle *openElfByFile(const char *path) {
 	void *base = NULL;
 	int fd = open(path, O_RDWR);

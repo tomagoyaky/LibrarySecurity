@@ -1,16 +1,18 @@
 LOCAL_PATH := $(call my-dir)
-
 include $(CLEAR_VARS)
 LOCAL_LDLIBS 	:= -llog -fPIC
 	
-LOCAL_C_INCLUDES :=  $(LOCAL_PATH)/../inc \
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/../inc \
 	$(LOCAL_PATH)/../libanti \
-	$(LOCAL_PATH)/../libshook \
 	$(LOCAL_PATH)/../libCommonUtils \
+	$(LOCAL_PATH)/../libhook \
+	$(LOCAL_PATH)/../libSandBox \
 	$(LOCAL_PATH)/../libCMPT
 	
-LOCAL_STATIC_LIBRARIES := libanti \
-	libshook \
+LOCAL_STATIC_LIBRARIES := \
+	libhook \
+	libSandBox\
+	libanti \
 	libCommonUtils \
 	libCMPT
 	

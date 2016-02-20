@@ -1,9 +1,11 @@
-#include <android_runtime/AndroidRuntime.h>
+#include "android_runtime/AndroidRuntime.h"
 
 #include "JavaMethodHook.h"
 #include "common.h"
 #include "dvm_func.h"
+#include "log.h"
 
+using namespace JavaHook;
 using android::AndroidRuntime;
 
 #ifdef DEBUG
@@ -11,6 +13,14 @@ using android::AndroidRuntime;
 #else
 #define STATIC static
 #endif
+
+#define CHECK_VALID(V) 				\
+	if(V == NULL){					\
+		LOGE("%s is null.", #V);	\
+		exit(-1);					\
+	}else{							\
+		LOGI("%s is %p.", #V, V);	\
+	}
 
 STATIC int calcMethodArgsSize(const char* shorty) {
 	int count = 0;
@@ -334,7 +344,7 @@ STATIC void method_handler(const u4* args, JValue* pResult, const Method* method
 	dvmReleaseTrackedAlloc((Object *)argTypes, self);
 }
 
-extern int __attribute__ ((visibility ("hidden"))) dalvik_java_method_hook(JNIEnv* env, HookInfo *info) {
+extern int __attribute__ ((visibility ("hidden"))) dalvikHook(JNIEnv* env, HookInfo *info) {
 	const char* classDesc = info->classDesc;
 	const char* methodName = info->methodName;
 	const char* methodSig = info->methodSig;

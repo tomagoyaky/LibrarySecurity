@@ -13,11 +13,12 @@
 #include <string.h>
 #include <sys/syscall.h>
 
-#include "log.h"
+#include "common.h"
 #include "elfutils.h"
 #include "elfio.h"
+#include "log.h"
 
-
+using namespace ElfHook;
 #define PAGE_START(addr) (~(getpagesize() - 1) & (addr))
 
 static int modifyMemAccess(void *addr, int prots){
@@ -50,7 +51,7 @@ static int replaceFunc(void *addr, void *replace_func, void **old_func){
 
 	*(void **)addr = replace_func;
 	clearCache(addr, getpagesize());
-	LOGI("[+] old_func is %p, replace_func is %p, new_func %p.", *old_func, replace_func, *(uint32_t *)addr);
+	LOGI("[+] old_func is %p, replace_func is %p, new_func %p.", *old_func, replace_func, (void*)(*(uint32_t *)addr));
 
 	fails:
 	return res;
@@ -110,6 +111,12 @@ int elfHook(const char *soname, const char *symbol, void *replace_func, void **o
 	fails:
 	closeElfBySoname(handle);
 	return 0;
+}
+
+int elfHookDirect(unsigned int addr, void *replace_func,void **old_func){
+
+	LOGE("elfHookDirect is unimplements!!");
+	return -1;
 }
 
 

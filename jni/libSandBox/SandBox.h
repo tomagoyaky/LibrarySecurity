@@ -7,11 +7,10 @@
 
 #ifndef SANDBOX_H_
 #define SANDBOX_H_
-
-#include "hook.h"
-
+#include <sys/types.h>
 namespace SandBox{
 
+	extern int start(pid_t pid);
 }
 
 

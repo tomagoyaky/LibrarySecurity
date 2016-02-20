@@ -164,8 +164,13 @@ obj/local/armeabi/objs/anti/CheckCheater.o: jni/libanti/CheckCheater.cpp \
  E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/asm-generic/errno-base.h \
  E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/android/log.h \
  jni/libanti/ANTIPARAMS.h jni/libanti/../libCommonUtils/processinfo.h \
- jni/libanti/../libCommonUtils/../inc/log.h \
- jni/libanti/../libshook/hook.h
+ jni/libanti/../libCommonUtils/../inc/log.h jni/libanti/../libhook/hook.h \
+ jni/libanti/../libhook/ElfHook/elfhook.h \
+ jni/libanti/../libhook/JavaHook/JavaMethodHook.h \
+ E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/jni.h \
+ E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/elf.h \
+ E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/sys/exec_elf.h \
+ E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/machine/exec.h
 
 jni/libanti/CheckCheater.h:
 
@@ -503,4 +508,16 @@ jni/libanti/../libCommonUtils/processinfo.h:
 
 jni/libanti/../libCommonUtils/../inc/log.h:
 
-jni/libanti/../libshook/hook.h:
+jni/libanti/../libhook/hook.h:
+
+jni/libanti/../libhook/ElfHook/elfhook.h:
+
+jni/libanti/../libhook/JavaHook/JavaMethodHook.h:
+
+E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/jni.h:
+
+E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/elf.h:
+
+E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/sys/exec_elf.h:
+
+E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/machine/exec.h:

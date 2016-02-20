@@ -74,18 +74,6 @@ struct DexFile;
 struct Object;
 struct Thread;
 
-union JValue {
-	u1 z;
-	s1 b;
-	u2 c;
-	s2 s;
-	s4 i;
-	s8 j;
-	float f;
-	double d;
-	void* l;
-};
-
 /*
  * Storage for primitive types and object references.
  *

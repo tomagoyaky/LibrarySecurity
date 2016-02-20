@@ -173,7 +173,8 @@ obj/local/armeabi/objs/Security/Security.o: jni/libSecurity/Security.cpp \
  E:/Android/android-ndk-r10/sources/cxx-stl/stlport/stlport/stl/_istream.c \
  E:/Android/android-ndk-r10/sources/cxx-stl/stlport/stlport/stl/_num_get.h \
  E:/Android/android-ndk-r10/sources/cxx-stl/stlport/stlport/stl/_num_get.c \
- E:/Android/android-ndk-r10/sources/cxx-stl/stlport/stlport/stl/_string_io.c
+ E:/Android/android-ndk-r10/sources/cxx-stl/stlport/stlport/stl/_string_io.c \
+ jni/libSecurity/../libSandBox/SandBox.h
 
 E:/Android/android-ndk-r10/platforms/android-19/arch-arm/usr/include/jni.h:
 
@@ -526,3 +527,5 @@ E:/Android/android-ndk-r10/sources/cxx-stl/stlport/stlport/stl/_num_get.h:
 E:/Android/android-ndk-r10/sources/cxx-stl/stlport/stlport/stl/_num_get.c:
 
 E:/Android/android-ndk-r10/sources/cxx-stl/stlport/stlport/stl/_string_io.c:
+
+jni/libSecurity/../libSandBox/SandBox.h:
