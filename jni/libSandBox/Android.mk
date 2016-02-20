@@ -3,11 +3,15 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 LOCAL_LDLIBS 	:= -llog -fPIC
 LOCAL_MODULE    := SandBox
-LOCAL_SRC_FILES := SandBox.cpp
+LOCAL_SRC_FILES := SandBox.cpp \
+	ptraceaux.c
+	
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../inc \
 	$(LOCAL_PATH)/../libCommonUtils
 	
-LOCAL_EXPORT_C_INCLUDES := SandBox.h
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)\
+	SandBox.h \
+	ptraceaux.h 
 
 LOCAL_STATIC_LIBRARIES := \
 	libCommonUtils

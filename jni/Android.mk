@@ -15,6 +15,7 @@ include $(JNI_PATH)/libTomagoyakyService/Android.mk
 include $(JNI_PATH)/libCMPT/Android.mk
 include $(JNI_PATH)/libCommonUtils/Android.mk
 include $(JNI_PATH)/libhook/Android.mk
+include $(JNI_PATH)/libhookMS/Android.mk
 
 include $(JNI_PATH)/libSandBox/Android.mk
 include $(JNI_PATH)/libanti/Android.mk

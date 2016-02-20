@@ -28,22 +28,22 @@ typedef unsigned long tracer_word_t;
 /**
  * Attach to a running process
  */
-extern int ptrace_attach(pid_t pid);
+extern long ptrace_attach(pid_t pid);
 
 /**
  * Detach a ptraced process
  */
-extern int ptrace_detach(pid_t pid);
+extern long ptrace_detach(pid_t pid);
 
 /**
  * Set the option for a ptraced process
  */
-extern void ptrace_setopt(pid_t pid, int opt);
+extern long ptrace_setopt(pid_t pid, int opt);
 
 /**
  * Continue the execution of tracee
  */
-extern void ptrace_cont(pid_t pid);
+extern long ptrace_cont(pid_t pid);
 
 /* Architecture dependent */
 extern void ptrace_read_data (pid_t pid, void *buf, tracee_ptr_t addr, int nbytes);

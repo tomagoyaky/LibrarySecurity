@@ -22,5 +22,6 @@
 int SandBox::start(pid_t pid){
 
 	LOGI("pid: %d", pid);
+//	long syscall_no =  ptrace_get_syscall_nr(pid);
 	return 0;
 }

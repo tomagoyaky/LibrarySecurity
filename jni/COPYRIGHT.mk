@@ -1,6 +1,6 @@
 $(info $(shell (echo "===============================================================")))
 $(info $(shell (echo "    xref:  https://github.com/tomagoyaky/LibrarySecurity.git")))
 $(info $(shell (echo "  author:  tomagoyaky")))
-$(info $(shell (echo "    date:  2016-02-20")))
-$(info $(shell (echo " contact:  tomagoyaky@gmail.com (build & publish)")))
+$(info $(shell (echo "    date:  2016-02-20 (build & publish)")))
+$(info $(shell (echo " contact:  tomagoyaky@gmail.com")))
 $(info $(shell (echo "===============================================================")))
